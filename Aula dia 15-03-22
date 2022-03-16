@@ -1,0 +1,30 @@
+1-	Livraria, Cadastro, Cliente
+2-	Endereço,  Telefone,  CPF
+3-	livros, 
+4-	Pessoa Física, Pessoa Jurídica, CNPJ,
+5-	Editoras
+6-	Código, endereço, Telefone,  gerente.
+7-	Código 
+8-	Autor, assunto, editora, isbn quantidade, estoque
+PASSO 1.1-  Análise da identificações
+1-	Livraria, Cadastro, Cliente, Endereço, Telefone, CPF, Livro, CNPJ, Pessoa Física, Pessoa Jurídica, Editoras, Código, Gerente, Autor, Assunto, Quantidade, Estoque.
+
+
+Passo 2 - Remover dados unitários
+1-	Cliente, Endereço, Telefone, CPF, Livro, CNPJ, Pessoa Física, Pessoa Jurídica, Editoras, Código, Gerente, Autor, Assunto, Quantidade, Estoque.
+
+
+Passo 3 - Remover dados de contexto
+1-	Cliente, Endereço, Telefone,  Livro , Pessoa Física, Pessoa Jurídica, Editoras, Gerente, Autor, Estoque.
+
+Passo 4- Remover dados de sistemas
+1-	Cliente, Endereço, Telefone,  Livro , Pessoa Física, Pessoa Jurídica, Editoras, Gerente, Autor.
+5. Representar as entidades finais
+Cliente (endereço, telefone, cpf ou cnpj, cod)
+Livro ( usbn, autor, assunto, quantidade)
+Compra ( data)
+Editoras (Codigo, endereço, telefone, gerente)
+
+6. Encontrar os relacionamentos entre as entidades
+Cliente x livro: um ou mais clientes pode obter um ou mais livros.
+Cliente x endereço: um cliente pode ter um ou mais.
