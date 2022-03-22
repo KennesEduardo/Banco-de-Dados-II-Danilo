@@ -1,0 +1,4 @@
+Comandos DML
+
+create database iftm; #criando um data base
+drop database iftm; #excluindo um data base
