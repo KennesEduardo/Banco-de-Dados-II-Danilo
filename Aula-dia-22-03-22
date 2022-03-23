@@ -2,3 +2,15 @@ Comandos DML
 
 create database iftm; #criando um data base
 drop database iftm; #excluindo um data base
+
+numeric(3,2) coloca quantas casa decimais 
+Date para data 
+Time hora
+Timestamp
+
+Primary key : chave primaria em tabela  
+Auto_increment gera um numericos sequeciais e automaticos;
+Not Null: nao pode deixar em branco
+constrain FK_TB1_TB2 FOREIGN KEY(CPF) REFERENCES TB2(CPF): relação em duas tabelas com 
+
+CREATE TABLE (NOME DA TABELA) CRIA UMA TABELA 
