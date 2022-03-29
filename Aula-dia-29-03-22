@@ -1,0 +1,115 @@
+create database exercicio1;
+
+create table productlines
+(
+	productlines int not null,
+    textDescription varchar(50),
+    htmlDescription varchar(50),
+    image blob,
+    primary key(productlines)
+);
+ALTER TABLE productlines CHANGE productlines productLine int not null;
+
+
+create table payments
+(
+	customerNumber int not null,
+    checkNumber int not null,
+    paymentDate date,
+    amount varchar(50),
+    primary key(customerNumber, checkNumber)	
+);
+
+create table customers
+(
+	customerNumber int not null,
+    customerName varchar(50)not null,
+    contactLastnNme varchar(25),
+    contactFirstName varchar(25),
+    phone int(13) not null,
+    addressLine1 varchar(50),
+    addressLine2 varchar(50),
+    city varchar(50),
+    state varchar(50),
+    postalCode int,
+    country varchar(50),
+    salesRepEmployeeNumber int,
+    creditLimit varchar(50),
+    primary key(customerNumber)	
+);
+
+create table orders
+(
+	orderNumber int not null,
+    orderDate date,
+    requeredDate date,
+    shippedDate date,
+    status varchar(10),
+    comment varchar(50),
+    customerNumber int,
+	constraint FK_orders_customers FOREIGN KEY(customerNumber) REFERENCES customers(customerNumber),
+    primary key(orderNumber)
+);
+
+create table products
+(
+	productCode int not null,
+    productName varchar(50),
+    productLine int not null,
+    productScale varchar(50),
+    productVendor varchar(50),
+    productDescription varchar(50),
+    quantilyInStock int,
+    buyPrice float,
+    MSRP varchar(50),
+	constraint FK_products_productlines FOREIGN KEY(productLine) REFERENCES productlines(productLine),
+    primary key(productCode)
+);
+
+
+
+create table orderdetalis
+(
+	orderNumber int not null,
+    productCode int not null,
+    quantilyOrdered varchar(15),
+    priceEach float,
+    orderLineNumber varchar(50),
+    constraint FK_orderdetalis_products FOREIGN KEY(productCode) REFERENCES products(productCode),
+    constraint FK_orderdetalis_orders FOREIGN KEY(orderNumber) REFERENCES orders(orderNumber),
+    primary key(orderNumber, productCode)
+);
+
+
+create table offices
+(
+	officeCode int not null,
+    city varchar(50),
+    phone int(13),
+	addressLine1 varchar(50),
+    addressLine2 varchar(50),
+    state varchar(50),
+    postalCode int,
+    country varchar(50),
+    territory varchar(50),
+    primary key(officeCode)
+);
+
+
+
+
+create table employees
+(
+	employeeNumber int not null,
+    lastName varchar(25) not null,
+    firtName varchar(25) not null,
+    extension varchar(25),
+    email varchar(25),
+    officeCode int not null,
+    reportsTo int,
+    jobTitle varchar(25),
+    primary key(employeeNumber),
+    constraint FK_employees_offices FOREIGN KEY(officeCode) REFERENCES offices(officeCode),
+	constraint FK_employees_reportsTo FOREIGN KEY(reportsTo) REFERENCES employees(employeeNumber)
+    
+);
